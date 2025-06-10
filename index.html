@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TIMOTHY MAINA KAGENI | CyberSec Sentinel</title>
+  <title>TIMOTHY MAINA | CyberSec Sentinel</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
@@ -17,39 +17,40 @@
       --warning-yellow: #ffd300;
     }
     
+    @font-face {
+      font-family: 'Rajdhani';
+      src: url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;500;700&display=swap');
+    }
+    
+    /* Keyframe Animations */
     @keyframes scanline {
       0% { transform: translateY(-100%); }
       100% { transform: translateY(100vh); }
     }
     
     @keyframes glitch {
-      0% { text-shadow: 0.05em 0 0 var(--cyberpunk-pink), -0.05em -0.025em 0 var(--cyber-blue); }
-      14% { text-shadow: 0.05em 0 0 var(--cyberpunk-pink), -0.05em -0.025em 0 var(--cyber-blue); }
-      15% { text-shadow: -0.05em -0.025em 0 var(--cyberpunk-pink), 0.025em 0.025em 0 var(--cyber-blue); }
-      49% { text-shadow: -0.05em -0.025em 0 var(--cyberpunk-pink), 0.025em 0.025em 0 var(--cyber-blue); }
-      50% { text-shadow: 0.025em 0.05em 0 var(--cyberpunk-pink), 0.05em 0 0 var(--cyber-blue); }
-      99% { text-shadow: 0.025em 0.05em 0 var(--cyberpunk-pink), 0.05em 0 0 var(--cyber-blue); }
-      100% { text-shadow: -0.025em 0 0 var(--cyberpunk-pink), -0.025em -0.025em 0 var(--cyber-blue); }
+      0%, 100% { text-shadow: none; }
+      25% { text-shadow: 2px 0 0 var(--cyberpunk-pink), -2px 0 0 var(--cyber-blue); }
+      50% { text-shadow: -3px 0 0 var(--cyberpunk-pink), 3px 0 0 var(--cyber-blue); }
+      75% { text-shadow: 1px 0 0 var(--cyberpunk-pink), -1px 0 0 var(--cyber-blue); }
     }
     
     @keyframes pulse {
-      0% { opacity: 0.5; }
+      0%, 100% { opacity: 0.8; }
       50% { opacity: 1; }
-      100% { opacity: 0.5; }
     }
     
     @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0px); }
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
     }
     
     @keyframes eye-glow {
-      0% { opacity: 0.7; box-shadow: 0 0 10px var(--neon-green); }
-      50% { opacity: 1; box-shadow: 0 0 25px var(--neon-green); }
-      100% { opacity: 0.7; box-shadow: 0 0 10px var(--neon-green); }
+      0%, 100% { box-shadow: 0 0 5px var(--neon-green); }
+      50% { box-shadow: 0 0 20px var(--neon-green); }
     }
     
+    /* Base Styles */
     * {
       margin: 0;
       padding: 0;
@@ -57,7 +58,7 @@
     }
     
     body {
-      font-family: 'Courier New', monospace;
+      font-family: 'Rajdhani', sans-serif;
       background-color: var(--dark-matter);
       color: white;
       line-height: 1.6;
@@ -65,6 +66,7 @@
       position: relative;
     }
     
+    /* Grid Background */
     body::before {
       content: "";
       position: fixed;
@@ -80,6 +82,7 @@
       z-index: -1;
     }
     
+    /* Scanline Effect */
     .scanlines {
       position: fixed;
       top: 0;
@@ -98,6 +101,7 @@
       z-index: -1;
     }
     
+    /* Main Container */
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -105,6 +109,7 @@
       position: relative;
     }
     
+    /* Header Styles */
     header {
       padding: 5rem 0 3rem;
       position: relative;
@@ -119,11 +124,6 @@
       align-items: center;
     }
     
-    .header-content {
-      position: relative;
-      z-index: 2;
-    }
-    
     h1 {
       font-size: 3.5rem;
       margin-bottom: 1rem;
@@ -135,7 +135,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 2px;
-      animation: glitch 8s infinite alternate;
+      animation: glitch 5s infinite alternate;
     }
     
     .tagline {
@@ -157,6 +157,7 @@
       background: linear-gradient(90deg, var(--neon-green), transparent);
     }
     
+    /* Contact Info */
     .contact-info {
       display: flex;
       flex-direction: column;
@@ -203,7 +204,7 @@
       width: 100%;
     }
     
-    /* Avatar Container */
+    /* Cyber Avatar */
     .avatar-container {
       position: relative;
       width: 280px;
@@ -227,9 +228,9 @@
       transition: all 0.5s ease;
       position: relative;
       z-index: 2;
+      animation: float 6s ease-in-out infinite;
     }
     
-    /* Glowing hover effect */
     .cyber-avatar:hover {
       transform: scale(1.03);
       box-shadow: 
@@ -242,7 +243,7 @@
         drop-shadow(0 0 10px var(--neon-green));
     }
     
-    /* Circuit board overlay */
+    /* Circuit Overlay */
     .circuit-overlay {
       position: absolute;
       top: 0;
@@ -258,7 +259,7 @@
       z-index: 3;
     }
     
-    /* Glowing eyes */
+    /* Glowing Eyes */
     .eye-glows {
       position: absolute;
       width: 100%;
@@ -289,7 +290,7 @@
       left: 55%;
     }
     
-    /* Scanline overlay for avatar */
+    /* Scanline Overlay */
     .avatar-scanlines {
       position: absolute;
       top: 0;
@@ -308,9 +309,232 @@
       z-index: 5;
     }
     
-    /* Rest of your existing styles... */
-    /* [Previous CSS styles for cards, terminal effects, etc. remain unchanged] */
+    /* Terminal Window */
+    .terminal-effect {
+      position: relative;
+      padding: 1.5rem;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--neon-green);
+      margin: 2rem 0;
+      font-family: 'Courier New', monospace;
+    }
     
+    .terminal-header {
+      display: flex;
+      margin-bottom: 1rem;
+    }
+    
+    .terminal-button {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 6px;
+    }
+    
+    .terminal-button.red { background: var(--cyberpunk-pink); }
+    .terminal-button.yellow { background: var(--warning-yellow); }
+    .terminal-button.green { background: var(--matrix-green); }
+    
+    .terminal-text {
+      color: var(--terminal-text);
+      line-height: 1.6;
+    }
+    
+    .terminal-cursor {
+      display: inline-block;
+      width: 10px;
+      height: 18px;
+      background: var(--terminal-text);
+      animation: blink 1s infinite;
+      vertical-align: middle;
+      margin-left: 3px;
+    }
+    
+    /* Content Cards */
+    .holographic-card {
+      background: rgba(10, 10, 20, 0.7);
+      border-radius: 10px;
+      padding: 2rem;
+      border: 1px solid rgba(10, 255, 157, 0.2);
+      box-shadow: 
+        0 0 30px rgba(10, 255, 157, 0.1),
+        inset 0 0 20px rgba(10, 255, 157, 0.1);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.5s ease;
+      backdrop-filter: blur(5px);
+      margin-bottom: 2rem;
+    }
+    
+    .holographic-card::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        to bottom right,
+        transparent,
+        transparent,
+        transparent,
+        rgba(10, 255, 157, 0.1),
+        transparent,
+        transparent,
+        transparent
+      );
+      transform: rotate(30deg);
+      animation: pulse 8s linear infinite;
+    }
+    
+    .holographic-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 
+        0 10px 40px rgba(10, 255, 157, 0.2),
+        inset 0 0 30px rgba(10, 255, 157, 0.2);
+      border-color: var(--neon-green);
+    }
+    
+    /* Skill Tags */
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+    
+    .skill-tag {
+      background: rgba(10, 255, 157, 0.1);
+      color: var(--neon-green);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      border: 1px solid var(--neon-green);
+      transition: all 0.3s ease;
+    }
+    
+    .skill-tag:hover {
+      background: var(--neon-green);
+      color: var(--dark-matter);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(10, 255, 157, 0.3);
+    }
+    
+    /* Cyber Button */
+    .cyber-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0.8rem 1.8rem;
+      background: transparent;
+      color: var(--neon-green);
+      border: 2px solid var(--neon-green);
+      border-radius: 0;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 1rem;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.9rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cyber-button::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(10, 255, 157, 0.2), transparent);
+      transition: all 0.5s ease;
+    }
+    
+    .cyber-button:hover {
+      background: rgba(10, 255, 157, 0.1);
+      box-shadow: 0 0 20px rgba(10, 255, 157, 0.3);
+    }
+    
+    .cyber-button:hover::before {
+      left: 100%;
+    }
+    
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 3rem 0;
+      margin-top: 4rem;
+      border-top: 1px solid rgba(10, 255, 157, 0.3);
+      position: relative;
+    }
+    
+    footer::before {
+      content: "TIMOTHY_MAINA_KAGENI.cyber";
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--dark-matter);
+      padding: 0 1rem;
+      color: var(--neon-green);
+      font-size: 0.9rem;
+    }
+    
+    .social-grid {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    
+    .social-icon {
+      color: white;
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .social-icon::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--neon-green);
+      transition: width 0.3s ease;
+    }
+    
+    .social-icon:hover {
+      color: var(--neon-green);
+      transform: translateY(-3px);
+    }
+    
+    .social-icon:hover::after {
+      width: 100%;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      .tagline {
+        font-size: 1.3rem;
+      }
+      
+      .cyber-avatar {
+        max-width: 200px;
+        margin-top: 2rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -329,11 +553,8 @@
               <div class="terminal-button yellow"></div>
               <div class="terminal-button green"></div>
             </div>
-            <div class="terminal-text">
-              <p>> PROFILE INITIALIZED</p>
-              <p>> CYBERSECURITY ANALYST: ACTIVE</p>
-              <p>> SOFTWARE DEVELOPER: ONLINE</p>
-              <p>> SYSTEMS: OPERATIONAL<span class="terminal-cursor"></span></p>
+            <div class="terminal-text" id="terminal-output">
+              <p>> INITIALIZING CYBER PROFILE...</p>
             </div>
           </div>
           
@@ -355,28 +576,262 @@
         
         <!-- Avatar Section -->
         <div class="avatar-container">
-          <!-- Replace with your actual image -->
-          <img src="https://i.imgur.com/JR6lQ2a.jpg" alt="Timothy Maina Cyber Avatar" class="cyber-avatar">
+          <img src="https://i.imgur.com/JR6lQ2a.jpg" alt="Timothy Maina Cyber Avatar" class="cyber-avatar" id="cyber-avatar">
           <div class="circuit-overlay"></div>
           <div class="eye-glows">
-            <div class="eye left"></div>
-            <div class="eye right"></div>
+            <div class="eye left" id="left-eye"></div>
+            <div class="eye right" id="right-eye"></div>
           </div>
           <div class="avatar-scanlines"></div>
         </div>
       </div>
     </header>
     
-    <!-- Rest of your HTML content remains unchanged -->
-    <!-- [Previous sections for experience, education, etc.] -->
+    <main>
+      <div class="holographic-card">
+        <h2>// PROFILE</h2>
+        <p>I'm a tech-driven cybersecurity analyst and software developer passionate about solving real-world challenges through secure coding and robust infrastructure. From backend development to deploying networks in government ministries, I combine precision, innovation, and adaptability. I thrive in dynamic environments and take pride in being a dependable teammate and a proactive problem-solver.</p>
+        <p>My approach to security is holistic - I don't just patch vulnerabilities, I architect systems that are resilient by design. When I'm not fortifying digital defenses, I'm mentoring the next generation of cyber warriors or contributing to open-source security tools.</p>
+      </div>
+      
+      <h2>// EXPERIENCE</h2>
+      
+      <div class="holographic-card">
+        <h3>INTERN – NETWORK & SYSTEMS TECHNICIAN</h3>
+        <div class="meta-info">
+          <span>TechSource Point – Westlands, Kenya</span>
+          <span>April 2025 – Present</span>
+        </div>
+        <ul>
+          <li>Currently deployed to the <strong>Ministry of Energy and Petroleum (Kawi)</strong> and the <strong>Ministry of Transport and Roads</strong>, supporting critical national infrastructure projects</li>
+          <li>Engineered network optimizations resulting in 22% throughput improvement across government LAN systems</li>
+          <li>Implemented structured cabling solutions for high-availability server environments</li>
+          <li>Configured and maintained Cisco switch infrastructure with zero downtime incidents</li>
+          <li>Developed automated network monitoring scripts that reduced troubleshooting time by 35%</li>
+        </ul>
+      </div>
+      
+      <div class="holographic-card">
+        <h3>DATA COLLECTION & ENTRY OFFICER</h3>
+        <div class="meta-info">
+          <span>Mathioya Constituency Office – Murang'a, Kenya</span>
+          <span>February 2025 – March 2025</span>
+        </div>
+        <ul>
+          <li>Designed and implemented data validation protocols that improved accuracy by 18%</li>
+          <li>Processed and secured sensitive financial data for over 500 bursary applicants</li>
+          <li>Created automated reporting templates that reduced administrative workload by 25%</li>
+        </ul>
+      </div>
+      
+      <div class="holographic-card">
+        <h3>BACKEND DEVELOPER</h3>
+        <div class="meta-info">
+          <span>Bramwa Tech Solutions – Murang'a, Kenya</span>
+          <span>September 2023 – April 2024</span>
+        </div>
+        <ul>
+          <li>Architected the subscription management system handling 15,000+ monthly transactions</li>
+          <li>Implemented role-based access control that reduced unauthorized access attempts by 90%</li>
+          <li>Optimized database queries resulting in 40% faster report generation</li>
+          <li>Conducted security audits that identified and patched 3 critical vulnerabilities</li>
+        </ul>
+      </div>
+      
+      <div class="holographic-card">
+        <h3>INTERN – NETWORK TECHNICIAN & ROBOTICS ASSISTANT</h3>
+        <div class="meta-info">
+          <span>Apollo Comptronics & Net Services – Murang'a, Kenya</span>
+          <span>June 2023 – September 2023</span>
+        </div>
+        <ul>
+          <li>Deployed 15+ secure network installations for commercial clients</li>
+          <li>Programmed IoT security features for smart automation systems</li>
+          <li>Developed documentation protocols adopted company-wide</li>
+          <li>Assisted in penetration testing of client networks</li>
+        </ul>
+      </div>
+      
+      <h2>// EDUCATION</h2>
+      
+      <div class="holographic-card">
+        <h3>BSC IN INFORMATION COMMUNICATION TECHNOLOGY</h3>
+        <div class="meta-info">
+          <span>Murang'a University of Technology – Murang'a, Kenya</span>
+          <span>August 2022 – April 2025 (Expected)</span>
+        </div>
+        <ul>
+          <li>Developed a secure exam management system with biometric authentication</li>
+          <li>Led cybersecurity awareness workshops for 200+ students</li>
+          <li>Research paper on "Blockchain for Secure Voting Systems"</li>
+          <li>Key Courses: Advanced Java, Secure Systems Design, Network Security, Cryptography</li>
+        </ul>
+      </div>
+      
+      <div class="holographic-card">
+        <h3>WEB DEVELOPMENT BOOTCAMP</h3>
+        <div class="meta-info">
+          <span>eMobilis Technology Training Institute – Nairobi, Kenya</span>
+          <span>October 2024 – December 2024</span>
+        </div>
+        <ul>
+          <li>Built a secure e-commerce platform with M-Pesa integration</li>
+          <li>Developed a vulnerability scanner for web applications</li>
+          <li>Created a cybersecurity dashboard for threat visualization</li>
+        </ul>
+      </div>
+      
+      <h2>// SKILL MATRIX</h2>
+      
+      <div class="holographic-card">
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h4>LANGUAGES</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">PHP</span>
+              <span class="skill-tag">Java</span>
+              <span class="skill-tag">C/C++</span>
+              <span class="skill-tag">Bash</span>
+            </div>
+          </div>
+          
+          <div class="skill-category">
+            <h4>WEB TECH</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">HTML5</span>
+              <span class="skill-tag">CSS3</span>
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">Django</span>
+              <span class="skill-tag">Express</span>
+              <span class="skill-tag">Bootstrap</span>
+            </div>
+          </div>
+          
+          <div class="skill-category">
+            <h4>CYBERSECURITY</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">Pen Testing</span>
+              <span class="skill-tag">SIEM Tools</span>
+              <span class="skill-tag">Forensics</span>
+              <span class="skill-tag">OWASP Top 10</span>
+              <span class="skill-tag">Nmap</span>
+              <span class="skill-tag">Metasploit</span>
+            </div>
+          </div>
+          
+          <div class="skill-category">
+            <h4>NETWORKING</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">Cisco</span>
+              <span class="skill-tag">LAN/WAN</span>
+              <span class="skill-tag">Wi-Fi Security</span>
+              <span class="skill-tag">Firewalls</span>
+              <span class="skill-tag">Packet Analysis</span>
+              <span class="skill-tag">VPNs</span>
+            </div>
+          </div>
+          
+          <div class="skill-category">
+            <h4>DATABASES</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">MySQL</span>
+              <span class="skill-tag">PostgreSQL</span>
+              <span class="skill-tag">MongoDB</span>
+              <span class="skill-tag">Redis</span>
+              <span class="skill-tag">SQL</span>
+            </div>
+          </div>
+          
+          <div class="skill-category">
+            <h4>CLOUD & TOOLS</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">AWS</span>
+              <span class="skill-tag">Git</span>
+              <span class="skill-tag">Docker</span>
+              <span class="skill-tag">Kali Linux</span>
+              <span class="skill-tag">Wireshark</span>
+              <span class="skill-tag">Burp Suite</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <h2>// SOFTWARES</h2>
+      
+      <div class="holographic-card">
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h4>ANALYTICAL</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">Critical Thinking</span>
+              <span class="skill-tag">Problem Solving</span>
+              <span class="skill-tag">Data Analysis</span>
+              <span class="skill-tag">Risk Assessment</span>
+            </div>
+          </div>
+          
+          <div class="skill-category">
+            <h4>COMMUNICATION</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">Technical Writing</span>
+              <span class="skill-tag">Presentation</span>
+              <span class="skill-tag">Team Collaboration</span>
+              <span class="skill-tag">Mentoring</span>
+            </div>
+          </div>
+          
+          <div class="skill-category">
+            <h4>OPERATIONAL</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">Adaptability</span>
+              <span class="skill-tag">Time Management</span>
+              <span class="skill-tag">Attention to Detail</span>
+              <span class="skill-tag">Crisis Management</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="button-group">
+        <a href="#" class="cyber-button">
+          <i class="fas fa-file-code"></i> EXPORT AS JSON
+        </a>
+        <a href="#" class="cyber-button">
+          <i class="fas fa-file-pdf"></i> DOWNLOAD PDF
+        </a>
+        <a href="#" class="cyber-button">
+          <i class="fas fa-file-word"></i> MICROSOFT WORD
+        </a>
+      </div>
+    </main>
     
     <footer>
-      <!-- Your footer content -->
+      <div class="social-grid">
+        <a href="#" class="social-icon">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="#" class="social-icon">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="#" class="social-icon">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" class="social-icon">
+          <i class="fab fa-hackerrank"></i>
+        </a>
+        <a href="#" class="social-icon">
+          <i class="fab fa-medium"></i>
+        </a>
+      </div>
+      <p>SYSTEM STATUS: <span style="color: var(--matrix-green);">OPERATIONAL</span></p>
+      <p>LAST UPDATE: <span style="color: var(--cyber-blue);">2024.06.15</span></p>
     </footer>
   </div>
   
   <script>
-    // Terminal typing effect
+    // Terminal Typing Effect
     const terminalLines = [
       "> INITIALIZING CYBER PROFILE...",
       "> LOADING SKILL MATRIX...",
@@ -385,7 +840,7 @@
       "> READY FOR DEPLOYMENT"
     ];
     
-    const terminalElement = document.querySelector('.terminal-text');
+    const terminalElement = document.getElementById('terminal-output');
     let currentLine = 0;
     let currentChar = 0;
     let isDeleting = false;
@@ -415,13 +870,10 @@
       }
     }
     
-    // Start terminal effect
-    setTimeout(typeTerminal, 1000);
-    
-    // Interactive eye follow effect
-    const avatar = document.querySelector('.avatar-container');
-    const leftEye = document.querySelector('.eye.left');
-    const rightEye = document.querySelector('.eye.right');
+    // Eye Follow Effect
+    const avatar = document.getElementById('cyber-avatar');
+    const leftEye = document.getElementById('left-eye');
+    const rightEye = document.getElementById('right-eye');
     
     avatar.addEventListener('mousemove', (e) => {
       const rect = avatar.getBoundingClientRect();
@@ -438,6 +890,21 @@
       leftEye.style.top = `${leftEyeY}%`;
       rightEye.style.left = `${rightEyeX}%`;
       rightEye.style.top = `${rightEyeY}%`;
+    });
+    
+    // Start effects when page loads
+    window.addEventListener('load', () => {
+      typeTerminal();
+      
+      // Add blinking effect to eyes
+      setInterval(() => {
+        leftEye.style.height = '2px';
+        rightEye.style.height = '2px';
+        setTimeout(() => {
+          leftEye.style.height = '8px';
+          rightEye.style.height = '8px';
+        }, 200);
+      }, 3000);
     });
   </script>
 </body>
