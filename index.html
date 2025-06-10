@@ -3,394 +3,395 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Timothy Maina | Cybersecurity Architect & Ethical Hacker</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <title>TIMOTHY MAINA KAGENI | Cybersecurity & Developer Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --primary: #00ff9d;
-      --secondary: #00b8ff;
-      --dark: #0a0a14;
-      --light: #f0f0f0;
-      --accent: #ff2d75;
+      --primary: #2a9d8f;
+      --secondary: #264653;
+      --accent: #e9c46a;
+      --dark: #1d1e20;
+      --light: #f8f9fa;
+      --danger: #e76f51;
     }
     
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     
     body {
-      font-family: 'Space Grotesk', sans-serif;
-      background-color: var(--dark);
-      color: var(--light);
+      background-color: #f5f5f5;
+      color: #333;
       line-height: 1.6;
-      overflow-x: hidden;
-    }
-    
-    .terminal {
-      font-family: 'Ubuntu Mono', monospace;
     }
     
     .container {
-      max-width: 1200px;
+      max-width: 1000px;
       margin: 0 auto;
-      padding: 0 2rem;
-    }
-    
-    header {
-      padding: 4rem 0;
+      background: white;
+      box-shadow: 0 0 30px rgba(0,0,0,0.1);
       position: relative;
       overflow: hidden;
     }
     
-    .header-content {
-      position: relative;
-      z-index: 2;
-    }
-    
-    .header-bg {
+    .security-strip {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at 70% 30%, rgba(0, 255, 157, 0.1) 0%, transparent 50%);
-      z-index: 1;
+      height: 8px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary), var(--danger));
     }
     
-    h1 {
-      font-size: 4rem;
-      margin-bottom: 1rem;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      line-height: 1.2;
-    }
-    
-    .tagline {
-      font-size: 1.5rem;
-      margin-bottom: 2rem;
-      color: var(--secondary);
-      opacity: 0.9;
-    }
-    
-    .typewriter {
-      font-size: 1.2rem;
-      border-right: 3px solid var(--primary);
-      white-space: nowrap;
-      overflow: hidden;
-      display: inline-block;
-      animation: blink-caret 0.75s step-end infinite;
-    }
-    
-    @keyframes blink-caret {
-      from, to { border-color: transparent }
-      50% { border-color: var(--primary); }
-    }
-    
-    .btn {
-      display: inline-block;
-      padding: 0.8rem 1.8rem;
-      background: transparent;
-      color: var(--primary);
-      border: 2px solid var(--primary);
-      border-radius: 4px;
-      text-decoration: none;
-      font-weight: 500;
-      margin-top: 1rem;
-      transition: all 0.3s ease;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-size: 0.9rem;
-    }
-    
-    .btn:hover {
-      background: var(--primary);
-      color: var(--dark);
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(0, 255, 157, 0.3);
-    }
-    
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin: 4rem 0;
-    }
-    
-    .card {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 10px;
-      padding: 2rem;
-      transition: all 0.3s ease;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-    }
-    
-    .card:hover {
-      transform: translateY(-10px);
-      border-color: var(--primary);
-      box-shadow: 0 10px 30px rgba(0, 255, 157, 0.1);
-    }
-    
-    .card h3 {
-      color: var(--primary);
-      margin-bottom: 1rem;
-      font-size: 1.5rem;
-    }
-    
-    .terminal-window {
-      background: rgba(0, 0, 0, 0.7);
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin: 2rem 0;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+    header {
+      padding: 40px 40px 20px;
+      background: var(--secondary);
+      color: white;
       position: relative;
     }
     
-    .terminal-header {
+    .header-content {
       display: flex;
-      margin-bottom: 1rem;
+      justify-content: space-between;
+      flex-wrap: wrap;
     }
     
-    .terminal-btn {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      margin-right: 6px;
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 5px;
+      font-weight: 700;
     }
     
-    .terminal-btn.red { background: #ff5f56; }
-    .terminal-btn.yellow { background: #ffbd2e; }
-    .terminal-btn.green { background: #27c93f; }
-    
-    .terminal-body {
-      color: var(--light);
-      line-height: 1.8;
+    h2 {
+      font-size: 1.8rem;
+      color: var(--secondary);
+      margin: 25px 0 15px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--accent);
     }
     
-    .terminal-prompt {
+    h3 {
+      font-size: 1.4rem;
       color: var(--primary);
+      margin-bottom: 8px;
     }
     
-    .terminal-cursor {
-      animation: blink 1s infinite;
+    .tagline {
+      font-size: 1.3rem;
+      font-weight: 300;
+      opacity: 0.9;
+      margin-bottom: 20px;
     }
     
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 15px;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .main-content {
+      padding: 30px 40px;
+    }
+    
+    .profile-section {
+      margin-bottom: 30px;
+    }
+    
+    .experience-item, .education-item {
+      margin-bottom: 25px;
+      padding-bottom: 20px;
+      border-bottom: 1px dashed #ddd;
+    }
+    
+    .experience-item:last-child, .education-item:last-child {
+      border-bottom: none;
+    }
+    
+    .meta-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      color: #666;
+      font-style: italic;
+    }
+    
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 20px;
+    }
+    
+    .skills-column {
+      flex: 1;
+      min-width: 250px;
+    }
+    
+    .skills-list {
+      list-style-type: none;
+    }
+    
+    .skills-list li {
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 25px;
+    }
+    
+    .skills-list li:before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+    
+    .soft-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    
+    .skill-tag {
+      background-color: var(--secondary);
+      color: white;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.9rem;
     }
     
     footer {
       text-align: center;
-      padding: 3rem 0;
-      margin-top: 4rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      background: var(--dark);
+      color: white;
     }
     
-    .social-links {
+    .action-buttons {
       display: flex;
       justify-content: center;
-      gap: 1.5rem;
-      margin: 1.5rem 0;
+      gap: 15px;
+      margin-top: 30px;
+      flex-wrap: wrap;
     }
     
-    .social-link {
-      color: var(--light);
-      font-size: 1.5rem;
+    .btn {
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 600;
       transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
     
-    .social-link:hover {
-      color: var(--primary);
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+    
+    .btn-secondary {
+      background: var(--accent);
+      color: var(--dark);
+    }
+    
+    .btn:hover {
       transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
     
     @media (max-width: 768px) {
-      h1 {
-        font-size: 2.5rem;
+      .header-content {
+        flex-direction: column;
       }
       
-      .tagline {
-        font-size: 1.2rem;
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .main-content {
+        padding: 20px;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="header-bg"></div>
-    <div class="container header-content">
-      <h1>Timothy Maina</h1>
-      <p class="tagline">Securing digital frontiers with innovative solutions</p>
-      <div class="typewriter">Cybersecurity Analyst & Software Developer</div>
-      
-      <div class="terminal-window">
-        <div class="terminal-header">
-          <div class="terminal-btn red"></div>
-          <div class="terminal-btn yellow"></div>
-          <div class="terminal-btn green"></div>
+  <div class="container">
+    <div class="security-strip"></div>
+    
+    <header>
+      <div class="header-content">
+        <div>
+          <h1>TIMOTHY MAINA KAGENI</h1>
+          <p class="tagline">Cybersecurity Analyst | Software Developer</p>
         </div>
-        <div class="terminal-body">
-          <p><span class="terminal-prompt">$ whoami</span><br>
-          Security professional with a passion for ethical hacking and secure software development.</p>
-          
-          <p><span class="terminal-prompt">$ skills --list</span><br>
-          Penetration Testing • Threat Analysis • Secure Coding • Cloud Security • Incident Response</p>
-          
-          <p><span class="terminal-prompt">$ contact</span><br>
-          Available for consulting and collaboration<span class="terminal-cursor">_</span></p>
+        
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>P.O. BOX 2, 10200, Murang'a, Kenya</span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <span>+254 794 637 463</span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:timothymaina030@gmail.com" style="color: white;">timothymaina030@gmail.com</a>
+          </div>
         </div>
       </div>
+    </header>
+    
+    <div class="main-content">
+      <section class="profile-section">
+        <h2>PROFILE</h2>
+        <p>I'm a tech-driven cybersecurity analyst and software developer passionate about solving real-world challenges through secure coding and robust infrastructure. From backend development to deploying networks in government ministries, I combine precision, innovation, and adaptability. I thrive in dynamic environments and take pride in being a dependable teammate and a proactive problem-solver.</p>
+      </section>
       
-      <a href="#about" class="btn">Explore My Work</a>
+      <section class="experience-section">
+        <h2>EXPERIENCE</h2>
+        
+        <div class="experience-item">
+          <h3>Intern – Network and Systems Technician</h3>
+          <div class="meta-info">
+            <span>TechSource Point – Westlands, Kenya</span>
+            <span>April 2025 – Present</span>
+          </div>
+          <ul class="skills-list">
+            <li>Currently deployed to the <strong>Ministry of Energy and Petroleum (Kawi)</strong> and the <strong>Ministry of Transport and Roads</strong>, supporting key IT infrastructure projects</li>
+            <li>Assisted with structured cabling, trunking, and general cable management</li>
+            <li>Configured Cisco switches and optimized LAN/WAN performance</li>
+            <li>Set up server rooms, assembled racks, and organized patch panels</li>
+            <li>Provided IP addressing, diagnostics, and general network troubleshooting</li>
+          </ul>
+        </div>
+        
+        <div class="experience-item">
+          <h3>Data Collection & Entry Officer – Bursary Program</h3>
+          <div class="meta-info">
+            <span>Mathioya Constituency Office – Murang'a, Kenya</span>
+            <span>February 2025 – March 2025</span>
+          </div>
+          <ul class="skills-list">
+            <li>Collected and validated data from bursary applicants during field activities</li>
+            <li>Entered, cleaned, and organized over 500 applicant records</li>
+            <li>Assisted the administration in compiling and verifying final reports</li>
+          </ul>
+        </div>
+        
+        <div class="experience-item">
+          <h3>Backend Developer</h3>
+          <div class="meta-info">
+            <span>Bramwa Tech Solutions – Murang'a, Kenya</span>
+            <span>September 2023 – April 2024</span>
+          </div>
+          <ul class="skills-list">
+            <li>Developed backend modules for a school management platform (subscriptions, reporting, and student records)</li>
+            <li>Designed and optimized database systems for scalability and accuracy</li>
+            <li>Worked closely with frontend teams to ensure seamless system integration</li>
+          </ul>
+        </div>
+        
+        <div class="experience-item">
+          <h3>Intern – Network Technician & Robotics Assistant</h3>
+          <div class="meta-info">
+            <span>Apollo Comptronics & Net Services – Murang'a, Kenya</span>
+            <span>June 2023 – September 2023</span>
+          </div>
+          <ul class="skills-list">
+            <li>Installed and maintained LAN/WAN networks and wireless systems</li>
+            <li>Deployed CCTV and internet setups for local clients</li>
+            <li>Supported the design and testing of robotics/automation prototypes</li>
+            <li>Took part in client demos, tech support, and product presentations</li>
+          </ul>
+        </div>
+      </section>
+      
+      <section class="education-section">
+        <h2>EDUCATION</h2>
+        
+        <div class="education-item">
+          <h3>BSc in Information Communication Technology</h3>
+          <div class="meta-info">
+            <span>Murang'a University of Technology – Murang'a, Kenya</span>
+            <span>August 2022 – April 2025 (Expected)</span>
+          </div>
+          <ul class="skills-list">
+            <li>Worked on various tech projects including mobile apps, full-stack systems, and IT audits</li>
+            <li>Key Courses: Java, Systems Analysis, Web Development, Embedded Systems, and Electronics</li>
+          </ul>
+        </div>
+        
+        <div class="education-item">
+          <h3>Web Development Bootcamp</h3>
+          <div class="meta-info">
+            <span>eMobilis Technology Training Institute – Nairobi, Kenya</span>
+            <span>October 2024 – December 2024</span>
+          </div>
+          <ul class="skills-list">
+            <li>Gained full-stack development skills using Python, Git, JavaScript, and Bootstrap</li>
+            <li>Integrated M-Pesa (Daraja API) into responsive web applications</li>
+          </ul>
+        </div>
+      </section>
+      
+      <section class="skills-section">
+        <h2>TECHNICAL SKILLS</h2>
+        <div class="skills-container">
+          <div class="skills-column">
+            <ul class="skills-list">
+              <li><strong>Languages:</strong> Python, JavaScript, PHP, Java, C/C++</li>
+              <li><strong>Web:</strong> HTML, CSS, React, Django, Express, Bootstrap, Ruby on Rails</li>
+              <li><strong>Databases:</strong> MySQL, PostgreSQL, MongoDB, SQL</li>
+            </ul>
+          </div>
+          <div class="skills-column">
+            <ul class="skills-list">
+              <li><strong>Cybersecurity:</strong> Digital Forensics, Pen Testing, SIEM Tools, Security Audits</li>
+              <li><strong>Networking:</strong> Cisco Switches/Routers, IP Configuration, LAN/WAN, Wi-Fi Setup</li>
+              <li><strong>Cloud & Tools:</strong> AWS (EC2, S3), Git, GitHub, Shell Scripting, Figma, Adobe XD</li>
+              <li><strong>Other:</strong> M-Pesa API Integration, Automation, Rack Assembly, Trunking</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      
+      <section class="soft-skills-section">
+        <h2>SOFT SKILLS</h2>
+        <div class="soft-skills">
+          <span class="skill-tag">Sharp analytical and problem-solving mindset</span>
+          <span class="skill-tag">Strong communicator and team collaborator</span>
+          <span class="skill-tag">Fast learner, adaptive to new tools</span>
+          <span class="skill-tag">Creative in user-focused design</span>
+          <span class="skill-tag">Reliable under pressure</span>
+          <span class="skill-tag">Deadline-driven</span>
+        </div>
+      </section>
+      
+      <div class="action-buttons">
+        <a href="#" class="btn btn-primary">
+          <i class="fas fa-file-word"></i> Download as Word
+        </a>
+        <a href="#" class="btn btn-secondary">
+          <i class="fas fa-file-pdf"></i> Download as PDF
+        </a>
+      </div>
     </div>
-  </header>
-  
-  <main class="container">
-    <section id="about">
-      <h2>About Me</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>My Journey</h3>
-          <p>From building my first computer at 14 to uncovering vulnerabilities in enterprise systems, my passion for technology has always been driven by curiosity and a desire to protect.</p>
-          <p>I believe cybersecurity isn't just about defense—it's about building resilient systems from the ground up.</p>
-        </div>
-        <div class="card">
-          <h3>Philosophy</h3>
-          <p>Security through transparency. I advocate for open communication about threats and vulnerabilities to create safer digital ecosystems for everyone.</p>
-          <p>Every system can be broken—the question is how quickly we can fix it.</p>
-        </div>
-        <div class="card">
-          <h3>Beyond Tech</h3>
-          <p>When I'm not analyzing logs or writing secure code, you'll find me hiking, playing chess, or mentoring aspiring cybersecurity professionals.</p>
-          <p>I'm convinced the best security solutions come from diverse perspectives.</p>
-        </div>
-      </div>
-    </section>
     
-    <section>
-      <h2>Core Expertise</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Threat Intelligence</h3>
-          <p>Identifying emerging threats before they become breaches. I specialize in proactive threat hunting and intelligence-driven defense strategies.</p>
-        </div>
-        <div class="card">
-          <h3>Secure Development</h3>
-          <p>Building security into the SDLC from requirements to deployment. I implement DevSecOps practices to create inherently secure applications.</p>
-        </div>
-        <div class="card">
-          <h3>Incident Response</h3>
-          <p>Leading teams through security incidents with precision. My approach combines technical expertise with clear communication during crises.</p>
-        </div>
-      </div>
-    </section>
-    
-    <section>
-      <div class="terminal-window">
-        <div class="terminal-header">
-          <div class="terminal-btn red"></div>
-          <div class="terminal-btn yellow"></div>
-          <div class="terminal-btn green"></div>
-        </div>
-        <div class="terminal-body">
-          <p><span class="terminal-prompt">$ projects --recent</span><br>
-          • Developed automated threat detection system (Python, ML)<br>
-          • Led security audit for Fortune 500 financial services<br>
-          • Open-source contributions to security tools</p>
-          
-          <p><span class="terminal-prompt">$ certifications</span><br>
-          • OSCP (Offensive Security Certified Professional)<br>
-          • CISSP (Certified Information Systems Security Professional)<br>
-          • AWS Certified Security - Specialty</p>
-          
-          <p><span class="terminal-prompt">$ contact --email</span><br>
-          <a href="mailto:timothy@example.com" style="color: var(--secondary);">timothy@example.com</a></p>
-        </div>
-      </div>
-    </section>
-  </main>
-  
-  <footer>
-    <div class="container">
-      <h3>Let's Connect</h3>
-      <p>Interested in collaborating or just want to talk security? I'm always open to interesting conversations.</p>
-      
-      <div class="social-links">
-        <a href="#" class="social-link">GitHub</a>
-        <a href="#" class="social-link">LinkedIn</a>
-        <a href="#" class="social-link">Twitter</a>
-        <a href="#" class="social-link">Medium</a>
-      </div>
-      
-      <p class="terminal">© 2023 Timothy Maina. All systems secure.</p>
-    </div>
-  </footer>
-  
-  <script>
-    // Typewriter effect
-    const phrases = [
-      "Cybersecurity Analyst & Software Developer",
-      "Ethical Hacker",
-      "Security Researcher",
-      "DevSecOps Engineer"
-    ];
-    let currentPhrase = 0;
-    let currentChar = 0;
-    let isDeleting = false;
-    const typewriterElement = document.querySelector('.typewriter');
-    
-    function typeWriter() {
-      const fullTxt = phrases[currentPhrase];
-      
-      if (isDeleting) {
-        typewriterElement.textContent = fullTxt.substring(0, currentChar - 1);
-        currentChar--;
-      } else {
-        typewriterElement.textContent = fullTxt.substring(0, currentChar + 1);
-        currentChar++;
-      }
-      
-      if (!isDeleting && currentChar === fullTxt.length) {
-        isDeleting = true;
-        setTimeout(typeWriter, 2000);
-      } else if (isDeleting && currentChar === 0) {
-        isDeleting = false;
-        currentPhrase = (currentPhrase + 1) % phrases.length;
-        setTimeout(typeWriter, 500);
-      } else {
-        const speed = isDeleting ? 50 : 100;
-        setTimeout(typeWriter, speed);
-      }
-    }
-    
-    // Start the typewriter effect
-    setTimeout(typeWriter, 1000);
-    
-    // Animate cards on scroll
-    const cards = document.querySelectorAll('.card');
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = 1;
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, { threshold: 0.1 });
-    
-    cards.forEach(card => {
-      card.style.opacity = 0;
-      card.style.transform = 'translateY(20px)';
-      card.style.transition = 'all 0.6s ease';
-      observer.observe(card);
-    });
-  </script>
+    <footer>
+      <p>© 2024 Timothy Maina Kageni | Cybersecurity Analyst & Software Developer</p>
+    </footer>
+  </div>
 </body>
 </html>
