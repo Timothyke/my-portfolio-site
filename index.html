@@ -1,553 +1,20 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TIMOTHY MAINA | Software Developer</title>
+  <title>TIMOTHY MAINA | Cybersecurity & Software Developer</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    :root {
-      --neon-green: #0aff9d;
-      --cyber-blue: #00b8ff;
-      --matrix-green: #00ff41;
-      --hacker-purple: #9d00ff;
-      --dark-matter: #0a0a14;
-      --terminal-text: #20c20e;
-      --cyberpunk-pink: #ff2d75;
-      --warning-yellow: #ffd300;
-    }
-    
-    @font-face {
-      font-family: 'Rajdhani';
-      src: url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;500;700&display=swap');
-    }
-    
-    /* Keyframe Animations */
-    @keyframes scanline {
-      0% { transform: translateY(-100%); }
-      100% { transform: translateY(100vh); }
-    }
-    
-    @keyframes glitch {
-      0%, 100% { text-shadow: none; }
-      25% { text-shadow: 2px 0 0 var(--cyberpunk-pink), -2px 0 0 var(--cyber-blue); }
-      50% { text-shadow: -3px 0 0 var(--cyberpunk-pink), 3px 0 0 var(--cyber-blue); }
-      75% { text-shadow: 1px 0 0 var(--cyberpunk-pink), -1px 0 0 var(--cyber-blue); }
-    }
-    
-    @keyframes pulse {
-      0%, 100% { opacity: 0.8; }
-      50% { opacity: 1; }
-    }
-    
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
-    }
-    
-    @keyframes eye-glow {
-      0%, 100% { box-shadow: 0 0 5px var(--neon-green); }
-      50% { box-shadow: 0 0 20px var(--neon-green); }
-    }
-    
-    /* Base Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    body {
-      font-family: 'Rajdhani', sans-serif;
-      background-color: var(--dark-matter);
-      color: white;
-      line-height: 1.6;
-      overflow-x: hidden;
-      position: relative;
-    }
-    
-    /* Grid Background */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: 
-        linear-gradient(rgba(10, 255, 157, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(10, 255, 157, 0.03) 1px, transparent 1px);
-      background-size: 20px 20px;
-      pointer-events: none;
-      z-index: -1;
-    }
-    
-    /* Scanline Effect */
-    .scanlines {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-        to bottom,
-        transparent 95%,
-        rgba(10, 255, 157, 0.1) 96%,
-        transparent 97%
-      );
-      background-size: 100% 5px;
-      animation: scanline 4s linear infinite;
-      pointer-events: none;
-      z-index: -1;
-    }
-    
-    /* Main Container */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      position: relative;
-    }
-    
-    /* Header Styles */
-    header {
-      padding: 5rem 0 3rem;
-      position: relative;
-      border-bottom: 1px solid rgba(10, 255, 157, 0.3);
-      margin-bottom: 3rem;
-    }
-    
-    .header-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      align-items: center;
-    }
-    
-    h1 {
-      font-size: 3.5rem;
-      margin-bottom: 1rem;
-      background: linear-gradient(90deg, var(--neon-green), var(--cyber-blue));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      line-height: 1.2;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      animation: glitch 5s infinite alternate;
-    }
-    
-    .tagline {
-      font-size: 1.8rem;
-      margin-bottom: 2rem;
-      color: var(--cyber-blue);
-      font-weight: 300;
-      position: relative;
-      display: inline-block;
-    }
-    
-    .tagline::after {
-      content: "";
-      position: absolute;
-      bottom: -10px;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background: linear-gradient(90deg, var(--neon-green), transparent);
-    }
-    
-    /* Contact Info */
-    .contact-info {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-    
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      font-size: 1.1rem;
-    }
-    
-    .contact-item i {
-      color: var(--neon-green);
-      width: 25px;
-      text-align: center;
-    }
-    
-    .contact-item a {
-      color: white;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      position: relative;
-    }
-    
-    .contact-item a:hover {
-      color: var(--neon-green);
-    }
-    
-    .contact-item a::after {
-      content: "";
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 0;
-      height: 1px;
-      background: var(--neon-green);
-      transition: width 0.3s ease;
-    }
-    
-    .contact-item a:hover::after {
-      width: 100%;
-    }
-    
-    /* Cyber Avatar */
-    .avatar-container {
-      position: relative;
-      width: 280px;
-      height: 350px;
-      justify-self: center;
-    }
-    
-    .cyber-avatar {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border: 3px solid var(--neon-green);
-      border-radius: 5px;
-      box-shadow: 
-        0 0 25px var(--neon-green),
-        inset 0 0 30px rgba(10, 255, 157, 0.3);
-      filter: 
-        sepia(30%) 
-        hue-rotate(170deg) 
-        contrast(110%);
-      transition: all 0.5s ease;
-      position: relative;
-      z-index: 2;
-      animation: float 6s ease-in-out infinite;
-    }
-    
-    .cyber-avatar:hover {
-      transform: scale(1.03);
-      box-shadow: 
-        0 0 40px var(--cyberpunk-pink),
-        0 0 60px var(--neon-green);
-      filter: 
-        sepia(30%) 
-        hue-rotate(175deg) 
-        contrast(120%) 
-        drop-shadow(0 0 10px var(--neon-green));
-    }
-    
-    /* Circuit Overlay */
-    .circuit-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: 
-        radial-gradient(circle at 30% 30%, transparent 65%, rgba(10, 255, 157, 0.1) 100%),
-        url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h100v100H0z' fill='none'/%3E%3Cpath d='M20 20h60v60H20z' stroke='%230aff9d' stroke-width='0.5' fill='none'/%3E%3Cpath d='M30 30h40v40H30z' stroke='%2300b8ff' stroke-width='0.3' fill='none'/%3E%3C/svg%3E");
-      opacity: 0.4;
-      mix-blend-mode: screen;
-      pointer-events: none;
-      z-index: 3;
-    }
-    
-    /* Glowing Eyes */
-    .eye-glows {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-      z-index: 4;
-    }
-    
-    .eye {
-      position: absolute;
-      width: 15px;
-      height: 8px;
-      background: var(--neon-green);
-      border-radius: 50%;
-      filter: blur(1px);
-      animation: eye-glow 2s infinite alternate;
-    }
-    
-    .eye.left {
-      top: 38%;
-      left: 35%;
-    }
-    
-    .eye.right {
-      top: 38%;
-      left: 55%;
-    }
-    
-    /* Scanline Overlay */
-    .avatar-scanlines {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-        to bottom,
-        transparent 95%,
-        rgba(10, 255, 157, 0.1) 96%,
-        transparent 97%
-      );
-      background-size: 100% 8px;
-      animation: scanline 3s linear infinite;
-      pointer-events: none;
-      z-index: 5;
-    }
-    
-    /* Terminal Window */
-    .terminal-effect {
-      position: relative;
-      padding: 1.5rem;
-      background: rgba(0, 0, 0, 0.5);
-      border: 1px solid var(--neon-green);
-      margin: 2rem 0;
-      font-family: 'Courier New', monospace;
-    }
-    
-    .terminal-header {
-      display: flex;
-      margin-bottom: 1rem;
-    }
-    
-    .terminal-button {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      margin-right: 6px;
-    }
-    
-    .terminal-button.red { background: var(--cyberpunk-pink); }
-    .terminal-button.yellow { background: var(--warning-yellow); }
-    .terminal-button.green { background: var(--matrix-green); }
-    
-    .terminal-text {
-      color: var(--terminal-text);
-      line-height: 1.6;
-    }
-    
-    .terminal-cursor {
-      display: inline-block;
-      width: 10px;
-      height: 18px;
-      background: var(--terminal-text);
-      animation: blink 1s infinite;
-      vertical-align: middle;
-      margin-left: 3px;
-    }
-    
-    /* Content Cards */
-    .holographic-card {
-      background: rgba(10, 10, 20, 0.7);
-      border-radius: 10px;
-      padding: 2rem;
-      border: 1px solid rgba(10, 255, 157, 0.2);
-      box-shadow: 
-        0 0 30px rgba(10, 255, 157, 0.1),
-        inset 0 0 20px rgba(10, 255, 157, 0.1);
-      position: relative;
-      overflow: hidden;
-      transition: all 0.5s ease;
-      backdrop-filter: blur(5px);
-      margin-bottom: 2rem;
-    }
-    
-    .holographic-card::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(
-        to bottom right,
-        transparent,
-        transparent,
-        transparent,
-        rgba(10, 255, 157, 0.1),
-        transparent,
-        transparent,
-        transparent
-      );
-      transform: rotate(30deg);
-      animation: pulse 8s linear infinite;
-    }
-    
-    .holographic-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 
-        0 10px 40px rgba(10, 255, 157, 0.2),
-        inset 0 0 30px rgba(10, 255, 157, 0.2);
-      border-color: var(--neon-green);
-    }
-    
-    /* Skill Tags */
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-top: 1rem;
-    }
-    
-    .skill-tag {
-      background: rgba(10, 255, 157, 0.1);
-      color: var(--neon-green);
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      border: 1px solid var(--neon-green);
-      transition: all 0.3s ease;
-    }
-    
-    .skill-tag:hover {
-      background: var(--neon-green);
-      color: var(--dark-matter);
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(10, 255, 157, 0.3);
-    }
-    
-    /* Cyber Button */
-    .cyber-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 0.8rem 1.8rem;
-      background: transparent;
-      color: var(--neon-green);
-      border: 2px solid var(--neon-green);
-      border-radius: 0;
-      text-decoration: none;
-      font-weight: 600;
-      margin-top: 1rem;
-      transition: all 0.3s ease;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-size: 0.9rem;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .cyber-button::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(10, 255, 157, 0.2), transparent);
-      transition: all 0.5s ease;
-    }
-    
-    .cyber-button:hover {
-      background: rgba(10, 255, 157, 0.1);
-      box-shadow: 0 0 20px rgba(10, 255, 157, 0.3);
-    }
-    
-    .cyber-button:hover::before {
-      left: 100%;
-    }
-    
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 3rem 0;
-      margin-top: 4rem;
-      border-top: 1px solid rgba(10, 255, 157, 0.3);
-      position: relative;
-    }
-    
-    footer::before {
-      content: "TIMOTHY_MAINA_KAGENI.cyber";
-      position: absolute;
-      top: -12px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--dark-matter);
-      padding: 0 1rem;
-      color: var(--neon-green);
-      font-size: 0.9rem;
-    }
-    
-    .social-grid {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin: 1.5rem 0;
-    }
-    
-    .social-icon {
-      color: white;
-      font-size: 1.5rem;
-      transition: all 0.3s ease;
-      position: relative;
-    }
-    
-    .social-icon::after {
-      content: "";
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--neon-green);
-      transition: width 0.3s ease;
-    }
-    
-    .social-icon:hover {
-      color: var(--neon-green);
-      transform: translateY(-3px);
-    }
-    
-    .social-icon:hover::after {
-      width: 100%;
-    }
-    
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .header-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      h1 {
-        font-size: 2.5rem;
-      }
-      
-      .tagline {
-        font-size: 1.3rem;
-      }
-      
-      .cyber-avatar {
-        max-width: 200px;
-        margin-top: 2rem;
-      }
-    }
-  </style>
+  <!-- ...Keep your style block as is for the cyberpunk theme... -->
 </head>
 <body>
   <div class="scanlines"></div>
-  
   <div class="container">
     <header>
       <div class="header-grid">
         <div class="header-content">
           <h1>TIMOTHY MAINA KAGENI</h1>
-          <p class="tagline">Software Developer</p>
-          
+          <p class="tagline">Cybersecurity Analyst & Software Developer</p>
           <div class="terminal-effect">
             <div class="terminal-header">
               <div class="terminal-button red"></div>
@@ -555,29 +22,27 @@
               <div class="terminal-button green"></div>
             </div>
             <div class="terminal-text" id="terminal-output">
-              <p>> INITIALIZING CYBER PROFILE...</p>
+              <p>Hi there! I'm Timothy — I build, break, and secure systems. Welcome to my digital lair.</p>
             </div>
           </div>
-          
           <div class="contact-info">
             <div class="contact-item">
               <i class="fas fa-map-marker-alt"></i>
-              <span>P.O. BOX 2, 10200, Murang'a, Kenya</span>
-            </div>
-            <div class="contact-item">
-              <i class="fas fa-phone"></i>
-              <span>+254 794 637 463</span>
+              <span>Murang'a, Kenya</span>
             </div>
             <div class="contact-item">
               <i class="fas fa-envelope"></i>
               <a href="mailto:timothymaina030@gmail.com">timothymaina030@gmail.com</a>
             </div>
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <span>+254 794 637 463</span>
+            </div>
           </div>
         </div>
-        
         <!-- Avatar Section -->
         <div class="avatar-container">
-          <img src="https://i.imgur.com/JR6lQ2a.jpg" alt="Timothy Maina Cyber Avatar" class="cyber-avatar" id="cyber-avatar">
+          <img src="https://i.imgur.com/JR6lQ2a.jpg" alt="Timothy Maina smiling in a cyberpunk-themed portrait" class="cyber-avatar" id="cyber-avatar">
           <div class="circuit-overlay"></div>
           <div class="eye-glows">
             <div class="eye left" id="left-eye"></div>
@@ -587,326 +52,92 @@
         </div>
       </div>
     </header>
-    
     <main>
       <div class="holographic-card">
-        <h2>// PROFILE</h2>
-        <p>I'm a tech-driven cybersecurity analyst and software developer passionate about solving real-world challenges through secure coding and robust infrastructure. From backend development to deploying networks in government ministries, I combine precision, innovation, and adaptability. I thrive in dynamic environments and take pride in being a dependable teammate and a proactive problem-solver.</p>
-        <p>My approach to security is holistic - I don't just patch vulnerabilities, I architect systems that are resilient by design. When I'm not fortifying digital defenses, I'm mentoring the next generation of cyber warriors or contributing to open-source security tools.</p>
+        <h2>// About Me</h2>
+        <p>
+          Hi, I'm Timothy! I thrive on challenges—whether it's keeping networks bulletproof, building backend systems, or mentoring the next cyber defender. My approach: think like an attacker, code like a craftsman, and always stay curious. 
+        </p>
+        <p>
+          I believe real security is about more than patching holes; it's about designing systems right from the ground up. When I’m not working, you’ll find me sharing knowledge or exploring the latest tech trends.
+        </p>
       </div>
-      
-      <h2>// EXPERIENCE</h2>
-      
+      <h2>// Experience</h2>
+      <!-- ...Keep your experience cards; tighten some bullet points for impact... -->
       <div class="holographic-card">
-        <h3>INTERN – NETWORK & SYSTEMS TECHNICIAN</h3>
+        <h3>INTERN – Network & Systems Technician</h3>
         <div class="meta-info">
-          <span>TechSource Point – Westlands, Kenya</span>
-          <span>April 2025 – Present</span>
+          <span>TechSource Point | Apr 2025 – Present</span>
         </div>
         <ul>
-          <li>Currently deployed to the <strong>Ministry of Energy and Petroleum (Kawi)</strong> and the <strong>Ministry of Transport and Roads</strong>, supporting critical national infrastructure projects</li>
-          <li>Engineered network optimizations resulting in 22% throughput improvement across government LAN systems</li>
-          <li>Implemented structured cabling solutions for high-availability server environments</li>
-          <li>Configured and maintained Cisco switch infrastructure with zero downtime incidents</li>
-          <li>Developed automated network monitoring scripts that reduced troubleshooting time by 35%</li>
+          <li>Supporting Kenya’s Ministry of Energy and Petroleum, and Ministry of Transport & Roads</li>
+          <li>Optimized government LAN systems (+22% throughput)</li>
+          <li>Built automated network monitoring scripts (cut troubleshooting time by 35%)</li>
+          <li>Configured and maintained Cisco switches with zero downtime</li>
         </ul>
       </div>
-      
-      <div class="holographic-card">
-        <h3>DATA COLLECTION & ENTRY OFFICER</h3>
-        <div class="meta-info">
-          <span>Mathioya Constituency Office – Murang'a, Kenya</span>
-          <span>February 2025 – March 2025</span>
-        </div>
-        <ul>
-          <li>Designed and implemented data validation protocols that improved accuracy by 18%</li>
-          <li>Processed and secured sensitive financial data for over 500 bursary applicants</li>
-          <li>Created automated reporting templates that reduced administrative workload by 25%</li>
-        </ul>
-      </div>
-      
-      <div class="holographic-card">
-        <h3>BACKEND DEVELOPER</h3>
-        <div class="meta-info">
-          <span>Bramwa Tech Solutions – Murang'a, Kenya</span>
-          <span>September 2023 – April 2024</span>
-        </div>
-        <ul>
-          <li>Architected the subscription management system handling 15,000+ monthly transactions</li>
-          <li>Implemented role-based access control that reduced unauthorized access attempts by 90%</li>
-          <li>Optimized database queries resulting in 40% faster report generation</li>
-          <li>Conducted security audits that identified and patched 3 critical vulnerabilities</li>
-        </ul>
-      </div>
-      
-      <div class="holographic-card">
-        <h3>INTERN – NETWORK TECHNICIAN & ROBOTICS ASSISTANT</h3>
-        <div class="meta-info">
-          <span>Apollo Comptronics & Net Services – Murang'a, Kenya</span>
-          <span>June 2023 – September 2023</span>
-        </div>
-        <ul>
-          <li>Deployed 15+ secure network installations for commercial clients</li>
-          <li>Programmed IoT security features for smart automation systems</li>
-          <li>Developed documentation protocols adopted company-wide</li>
-          <li>Assisted in penetration testing of client networks</li>
-        </ul>
-      </div>
-      
-      <h2>// EDUCATION</h2>
-      
-      <div class="holographic-card">
-        <h3>INFORMATION COMMUNICATION TECHNOLOGY</h3>
-        <div class="meta-info">
-          <span>Murang'a University of Technology – Murang'a, Kenya</span>
-          <span>August 2022 – April 2025 (Expected)</span>
-        </div>
-        <ul>
-          <li>Developed a secure exam management system with biometric authentication</li>
-          <li>Led cybersecurity awareness workshops for 200+ students</li>
-          <li>Research paper on "Blockchain for Secure Voting Systems"</li>
-          <li>Key Courses: Advanced Java, Secure Systems Design, Network Security, Cryptography</li>
-        </ul>
-      </div>
-      
-      <div class="holographic-card">
-        <h3>WEB DEVELOPMENT BOOTCAMP</h3>
-        <div class="meta-info">
-          <span>eMobilis Technology Training Institute – Nairobi, Kenya</span>
-          <span>October 2024 – December 2024</span>
-        </div>
-        <ul>
-          <li>Built a secure e-commerce platform with M-Pesa integration</li>
-          <li>Developed a vulnerability scanner for web applications</li>
-          <li>Created a cybersecurity dashboard for threat visualization</li>
-        </ul>
-      </div>
-      
-      <h2>// SKILL MATRIX</h2>
-      
+      <!-- ...More experience, education, etc. (as in your code, but more concise and human) ... -->
+
+      <h2>// Skills</h2>
       <div class="holographic-card">
         <div class="skills-grid">
           <div class="skill-category">
-            <h4>LANGUAGES</h4>
+            <h4>Tech Stack</h4>
             <div class="skill-tags">
               <span class="skill-tag">Python</span>
               <span class="skill-tag">JavaScript</span>
               <span class="skill-tag">PHP</span>
               <span class="skill-tag">Java</span>
-              <span class="skill-tag">C/C++</span>
-              <span class="skill-tag">Bash</span>
-            </div>
-          </div>
-          
-          <div class="skill-category">
-            <h4>WEB TECH</h4>
-            <div class="skill-tags">
-              <span class="skill-tag">HTML5</span>
-              <span class="skill-tag">CSS3</span>
               <span class="skill-tag">React</span>
               <span class="skill-tag">Django</span>
-              <span class="skill-tag">Express</span>
-              <span class="skill-tag">Bootstrap</span>
+              <span class="skill-tag">AWS</span>
+              <!-- ... -->
             </div>
           </div>
-          
           <div class="skill-category">
-            <h4>CYBERSECURITY</h4>
+            <h4>Security</h4>
             <div class="skill-tags">
               <span class="skill-tag">Pen Testing</span>
-              <span class="skill-tag">SIEM Tools</span>
-              <span class="skill-tag">Forensics</span>
               <span class="skill-tag">OWASP Top 10</span>
-              <span class="skill-tag">Nmap</span>
-              <span class="skill-tag">Metasploit</span>
+              <span class="skill-tag">SIEM</span>
+              <span class="skill-tag">Forensics</span>
+              <!-- ... -->
             </div>
           </div>
-          
           <div class="skill-category">
-            <h4>NETWORKING</h4>
+            <h4>Soft Skills</h4>
             <div class="skill-tags">
-              <span class="skill-tag">Cisco</span>
-              <span class="skill-tag">LAN/WAN</span>
-              <span class="skill-tag">Wi-Fi Security</span>
-              <span class="skill-tag">Firewalls</span>
-              <span class="skill-tag">Packet Analysis</span>
-              <span class="skill-tag">VPNs</span>
-            </div>
-          </div>
-          
-          <div class="skill-category">
-            <h4>DATABASES</h4>
-            <div class="skill-tags">
-              <span class="skill-tag">MySQL</span>
-              <span class="skill-tag">PostgreSQL</span>
-              <span class="skill-tag">MongoDB</span>
-              <span class="skill-tag">Redis</span>
-              <span class="skill-tag">SQL</span>
-            </div>
-          </div>
-          
-          <div class="skill-category">
-            <h4>CLOUD & TOOLS</h4>
-            <div class="skill-tags">
-              <span class="skill-tag">AWS</span>
-              <span class="skill-tag">Git</span>
-              <span class="skill-tag">Docker</span>
-              <span class="skill-tag">Kali Linux</span>
-              <span class="skill-tag">Wireshark</span>
-              <span class="skill-tag">Burp Suite</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <h2>// SOFTWARES</h2>
-      
-      <div class="holographic-card">
-        <div class="skills-grid">
-          <div class="skill-category">
-            <h4>ANALYTICAL</h4>
-            <div class="skill-tags">
-              <span class="skill-tag">Critical Thinking</span>
               <span class="skill-tag">Problem Solving</span>
-              <span class="skill-tag">Data Analysis</span>
-              <span class="skill-tag">Risk Assessment</span>
-            </div>
-          </div>
-          
-          <div class="skill-category">
-            <h4>COMMUNICATION</h4>
-            <div class="skill-tags">
-              <span class="skill-tag">Technical Writing</span>
-              <span class="skill-tag">Presentation</span>
-              <span class="skill-tag">Team Collaboration</span>
               <span class="skill-tag">Mentoring</span>
-            </div>
-          </div>
-          
-          <div class="skill-category">
-            <h4>OPERATIONAL</h4>
-            <div class="skill-tags">
-              <span class="skill-tag">Adaptability</span>
-              <span class="skill-tag">Time Management</span>
+              <span class="skill-tag">Collaboration</span>
               <span class="skill-tag">Attention to Detail</span>
-              <span class="skill-tag">Crisis Management</span>
             </div>
           </div>
         </div>
       </div>
-      
-      <div class="button-group">
-        <a href="#" class="cyber-button">
-          <i class="fas fa-file-code"></i> EXPORT AS JSON
-        </a>
-        <a href="#" class="cyber-button">
-          <i class="fas fa-file-pdf"></i> DOWNLOAD PDF
-        </a>
-        <a href="#" class="cyber-button">
-          <i class="fas fa-file-word"></i> MICROSOFT WORD
-        </a>
+      <div class="holographic-card">
+        <h2>// Fun Facts</h2>
+        <ul>
+          <li>I love teaching cybersecurity to new learners!</li>
+          <li>My favorite debugging tool: coffee ☕</li>
+          <li>Favorite movie: The Matrix</li>
+        </ul>
       </div>
     </main>
-    
     <footer>
       <div class="social-grid">
-        <a href="#" class="social-icon">
-          <i class="fab fa-github"></i>
-        </a>
-        <a href="#" class="social-icon">
-          <i class="fab fa-linkedin"></i>
-        </a>
-        <a href="#" class="social-icon">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="#" class="social-icon">
-          <i class="fab fa-hackerrank"></i>
-        </a>
-        <a href="#" class="social-icon">
-          <i class="fab fa-medium"></i>
-        </a>
+        <a href="https://github.com/Timothyke" class="social-icon" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-icon" aria-label="Hackerrank"><i class="fab fa-hackerrank"></i></a>
+        <a href="#" class="social-icon" aria-label="Medium"><i class="fab fa-medium"></i></a>
       </div>
       <p>SYSTEM STATUS: <span style="color: var(--matrix-green);">OPERATIONAL</span></p>
-      <p>LAST UPDATE: <span style="color: var(--cyber-blue);">2024.06.15</span></p>
+      <p>LAST UPDATE: <span style="color: var(--cyber-blue);">2025.06.12</span></p>
     </footer>
   </div>
-  
-  <script>
-    // Terminal Typing Effect
-    const terminalLines = [
-      "> INITIALIZING CYBER PROFILE...",
-      "> LOADING SKILL MATRIX...",
-      "> ANALYZING THREAT LANDSCAPE...",
-      "> SYSTEMS: SECURE",
-      "> READY FOR DEPLOYMENT"
-    ];
-    
-    const terminalElement = document.getElementById('terminal-output');
-    let currentLine = 0;
-    let currentChar = 0;
-    let isDeleting = false;
-    let terminalTimeout;
-    
-    function typeTerminal() {
-      const fullText = terminalLines[currentLine];
-      
-      if (isDeleting) {
-        terminalElement.innerHTML = terminalElement.innerHTML.slice(0, -1);
-        currentChar--;
-      } else {
-        terminalElement.innerHTML = fullText.substring(0, currentChar + 1) + '<span class="terminal-cursor"></span>';
-        currentChar++;
-      }
-      
-      if (!isDeleting && currentChar === fullText.length) {
-        isDeleting = true;
-        terminalTimeout = setTimeout(typeTerminal, 2000);
-      } else if (isDeleting && currentChar === 0) {
-        isDeleting = false;
-        currentLine = (currentLine + 1) % terminalLines.length;
-        terminalTimeout = setTimeout(typeTerminal, 500);
-      } else {
-        const typingSpeed = isDeleting ? 50 : 100;
-        terminalTimeout = setTimeout(typeTerminal, typingSpeed);
-      }
-    }
-    
-    // Eye Follow Effect
-    const avatar = document.getElementById('cyber-avatar');
-    const leftEye = document.getElementById('left-eye');
-    const rightEye = document.getElementById('right-eye');
-    
-    avatar.addEventListener('mousemove', (e) => {
-      const rect = avatar.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      
-      // Calculate eye positions (relative to avatar)
-      const leftEyeX = 35 + (x / rect.width * 10 - 5);
-      const leftEyeY = 38 + (y / rect.height * 5 - 2.5);
-      const rightEyeX = 55 + (x / rect.width * 10 - 5);
-      const rightEyeY = 38 + (y / rect.height * 5 - 2.5);
-      
-      leftEye.style.left = `${leftEyeX}%`;
-      leftEye.style.top = `${leftEyeY}%`;
-      rightEye.style.left = `${rightEyeX}%`;
-      rightEye.style.top = `${rightEyeY}%`;
-    });
-    
-    // Start effects when page loads
-    window.addEventListener('load', () => {
-      typeTerminal();
-      
-      // Add blinking effect to eyes
-      setInterval(() => {
-        leftEye.style.height = '2px';
-        rightEye.style.height = '2px';
-        setTimeout(() => {
-          leftEye.style.height = '8px';
-          rightEye.style.height = '8px';
-        }, 200);
-      }, 3000);
-    });
-  </script>
+  <!-- ...Keep your JS for terminal typing & eye effect... -->
 </body>
 </html>
+
+
