@@ -3,141 +3,403 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TIMOTHY MAINA | Cybersecurity & Software Developer</title>
+  <title>Timothy Maina | Software Developer & Cybersecurity Specialist</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- ...Keep your style block as is for the cyberpunk theme... -->
+  <style>
+    :root {
+      --primary: #2a9d8f;
+      --secondary: #264653;
+      --accent: #e9c46a;
+      --dark: #1d1e20;
+      --light: #f8f9fa;
+      --highlight: #e76f51;
+      --soft-blue: #a8dadc;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+    }
+    
+    body {
+      background-color: #f5f5f7;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: white;
+      box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+    }
+    
+    header {
+      padding: 3rem 2rem;
+      background: var(--secondary);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(42,157,143,0.2) 0%, transparent 100%);
+    }
+    
+    .header-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      color: white;
+    }
+    
+    .tagline {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      color: var(--accent);
+      font-weight: 300;
+    }
+    
+    .profile-image {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      margin: 0 auto 1.5rem;
+      display: block;
+    }
+    
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1rem;
+    }
+    
+    .contact-item i {
+      color: var(--accent);
+    }
+    
+    main {
+      padding: 3rem 2rem;
+    }
+    
+    section {
+      margin-bottom: 3rem;
+    }
+    
+    h2 {
+      font-size: 2rem;
+      color: var(--secondary);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--accent);
+    }
+    
+    h3 {
+      font-size: 1.4rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    
+    .experience-item {
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .experience-item:last-child {
+      border-bottom: none;
+    }
+    
+    .job-meta {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+      color: #666;
+      font-style: italic;
+    }
+    
+    ul {
+      padding-left: 1.5rem;
+    }
+    
+    li {
+      margin-bottom: 0.5rem;
+      line-height: 1.6;
+    }
+    
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    
+    .skills-column {
+      flex: 1;
+      min-width: 250px;
+    }
+    
+    .skills-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    
+    .skills-list li {
+      margin-bottom: 0.8rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    
+    .skills-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: bold;
+    }
+    
+    .soft-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+    
+    .skill-tag {
+      background-color: var(--secondary);
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: var(--dark);
+      color: white;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    
+    .social-link {
+      color: white;
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .social-link:hover {
+      color: var(--accent);
+      transform: translateY(-3px);
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.8rem;
+      background: var(--primary);
+      color: white;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .btn:hover {
+      background: var(--highlight);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+      
+      .tagline {
+        font-size: 1.2rem;
+      }
+      
+      .skills-container {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="scanlines"></div>
   <div class="container">
     <header>
-      <div class="header-grid">
-        <div class="header-content">
-          <h1>TIMOTHY MAINA KAGENI</h1>
-          <p class="tagline">Cybersecurity Analyst & Software Developer</p>
-          <div class="terminal-effect">
-            <div class="terminal-header">
-              <div class="terminal-button red"></div>
-              <div class="terminal-button yellow"></div>
-              <div class="terminal-button green"></div>
-            </div>
-            <div class="terminal-text" id="terminal-output">
-              <p>Hi there! I'm Timothy — I build, break, and secure systems. Welcome to my digital lair.</p>
-            </div>
+      <div class="header-content">
+        <img src="https://i.imgur.com/JR6lQ2a.jpg" alt="Timothy Maina" class="profile-image">
+        <h1>Timothy Maina Kageni</h1>
+        <p class="tagline">Software Developer & Cybersecurity Specialist</p>
+        
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Murang'a, Kenya</span>
           </div>
-          <div class="contact-info">
-            <div class="contact-item">
-              <i class="fas fa-map-marker-alt"></i>
-              <span>Murang'a, Kenya</span>
-            </div>
-            <div class="contact-item">
-              <i class="fas fa-envelope"></i>
-              <a href="mailto:timothymaina030@gmail.com">timothymaina030@gmail.com</a>
-            </div>
-            <div class="contact-item">
-              <i class="fas fa-phone"></i>
-              <span>+254 794 637 463</span>
-            </div>
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <span>+254 794 637 463</span>
           </div>
-        </div>
-        <!-- Avatar Section -->
-        <div class="avatar-container">
-          <img src="https://i.imgur.com/JR6lQ2a.jpg" alt="Timothy Maina smiling in a cyberpunk-themed portrait" class="cyber-avatar" id="cyber-avatar">
-          <div class="circuit-overlay"></div>
-          <div class="eye-glows">
-            <div class="eye left" id="left-eye"></div>
-            <div class="eye right" id="right-eye"></div>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:timothymaina030@gmail.com" style="color:white;">timothymaina030@gmail.com</a>
           </div>
-          <div class="avatar-scanlines"></div>
         </div>
       </div>
     </header>
+    
     <main>
-      <div class="holographic-card">
-        <h2>// About Me</h2>
-        <p>
-          Hi, I'm Timothy! I thrive on challenges—whether it's keeping networks bulletproof, building backend systems, or mentoring the next cyber defender. My approach: think like an attacker, code like a craftsman, and always stay curious. 
-        </p>
-        <p>
-          I believe real security is about more than patching holes; it's about designing systems right from the ground up. When I’m not working, you’ll find me sharing knowledge or exploring the latest tech trends.
-        </p>
-      </div>
-      <h2>// Experience</h2>
-      <!-- ...Keep your experience cards; tighten some bullet points for impact... -->
-      <div class="holographic-card">
-        <h3>INTERN – Network & Systems Technician</h3>
-        <div class="meta-info">
-          <span>TechSource Point | Apr 2025 – Present</span>
+      <section id="about">
+        <h2>About Me</h2>
+        <p>I'm a passionate software developer with specialized experience in cybersecurity. My journey in tech has taken me from building backend systems to securing critical infrastructure for government ministries. What drives me is creating solutions that are not just functional, but secure and resilient by design.</p>
+        <p>When I'm not coding or analyzing systems, you'll find me mentoring aspiring developers or contributing to open-source projects that make technology more accessible.</p>
+      </section>
+      
+      <section id="experience">
+        <h2>Professional Experience</h2>
+        
+        <div class="experience-item">
+          <h3>Network & Systems Technician Intern</h3>
+          <div class="job-meta">
+            <span>TechSource Point</span>
+            <span>April 2025 - Present</span>
+          </div>
+          <ul>
+            <li>Supporting IT infrastructure projects for Kenyan government ministries including Energy and Transport</li>
+            <li>Optimized network performance, resulting in 22% throughput improvement</li>
+            <li>Developed automation scripts that reduced troubleshooting time by 35%</li>
+          </ul>
         </div>
-        <ul>
-          <li>Supporting Kenya’s Ministry of Energy and Petroleum, and Ministry of Transport & Roads</li>
-          <li>Optimized government LAN systems (+22% throughput)</li>
-          <li>Built automated network monitoring scripts (cut troubleshooting time by 35%)</li>
-          <li>Configured and maintained Cisco switches with zero downtime</li>
-        </ul>
-      </div>
-      <!-- ...More experience, education, etc. (as in your code, but more concise and human) ... -->
-
-      <h2>// Skills</h2>
-      <div class="holographic-card">
-        <div class="skills-grid">
-          <div class="skill-category">
-            <h4>Tech Stack</h4>
-            <div class="skill-tags">
-              <span class="skill-tag">Python</span>
-              <span class="skill-tag">JavaScript</span>
-              <span class="skill-tag">PHP</span>
-              <span class="skill-tag">Java</span>
-              <span class="skill-tag">React</span>
-              <span class="skill-tag">Django</span>
-              <span class="skill-tag">AWS</span>
-              <!-- ... -->
-            </div>
+        
+        <div class="experience-item">
+          <h3>Backend Developer</h3>
+          <div class="job-meta">
+            <span>Bramwa Tech Solutions</span>
+            <span>Sept 2023 - April 2024</span>
           </div>
-          <div class="skill-category">
-            <h4>Security</h4>
-            <div class="skill-tags">
-              <span class="skill-tag">Pen Testing</span>
-              <span class="skill-tag">OWASP Top 10</span>
-              <span class="skill-tag">SIEM</span>
-              <span class="skill-tag">Forensics</span>
-              <!-- ... -->
-            </div>
+          <ul>
+            <li>Architected a school management system handling 15,000+ monthly transactions</li>
+            <li>Implemented security measures that reduced unauthorized access by 90%</li>
+            <li>Optimized database performance, speeding up reports by 40%</li>
+          </ul>
+        </div>
+      </section>
+      
+      <section id="education">
+        <h2>Education</h2>
+        <div class="experience-item">
+          <h3>BSc in Information Communication Technology</h3>
+          <div class="job-meta">
+            <span>Murang'a University of Technology</span>
+            <span>2022 - 2025 (Expected)</span>
           </div>
-          <div class="skill-category">
-            <h4>Soft Skills</h4>
-            <div class="skill-tags">
-              <span class="skill-tag">Problem Solving</span>
-              <span class="skill-tag">Mentoring</span>
-              <span class="skill-tag">Collaboration</span>
-              <span class="skill-tag">Attention to Detail</span>
-            </div>
+          <ul>
+            <li>Developed secure exam system with biometric authentication</li>
+            <li>Led cybersecurity workshops for 200+ students</li>
+            <li>Research focus: Blockchain applications for secure voting</li>
+          </ul>
+        </div>
+      </section>
+      
+      <section id="skills">
+        <h2>Technical Skills</h2>
+        <div class="skills-container">
+          <div class="skills-column">
+            <h3>Languages & Frameworks</h3>
+            <ul class="skills-list">
+              <li>Python, JavaScript, Java</li>
+              <li>Django, React, Express</li>
+              <li>HTML5, CSS3, Bootstrap</li>
+            </ul>
+          </div>
+          
+          <div class="skills-column">
+            <h3>Cybersecurity</h3>
+            <ul class="skills-list">
+              <li>Penetration Testing</li>
+              <li>Network Security</li>
+              <li>Vulnerability Assessment</li>
+            </ul>
+          </div>
+          
+          <div class="skills-column">
+            <h3>Tools & Platforms</h3>
+            <ul class="skills-list">
+              <li>AWS, Docker, Git</li>
+              <li>Kali Linux, Wireshark</li>
+              <li>MySQL, MongoDB</li>
+            </ul>
           </div>
         </div>
-      </div>
-      <div class="holographic-card">
-        <h2>// Fun Facts</h2>
-        <ul>
-          <li>I love teaching cybersecurity to new learners!</li>
-          <li>My favorite debugging tool: coffee ☕</li>
-          <li>Favorite movie: The Matrix</li>
-        </ul>
-      </div>
+      </section>
+      
+      <section id="soft-skills">
+        <h2>Professional Strengths</h2>
+        <div class="soft-skills">
+          <span class="skill-tag">Problem Solving</span>
+          <span class="skill-tag">Team Collaboration</span>
+          <span class="skill-tag">Adaptability</span>
+          <span class="skill-tag">Attention to Detail</span>
+          <span class="skill-tag">Technical Communication</span>
+        </div>
+      </section>
+      
+      <section>
+        <a href="#" class="btn">
+          <i class="fas fa-download"></i> Download Full Resume
+        </a>
+      </section>
     </main>
+    
     <footer>
-      <div class="social-grid">
-        <a href="https://github.com/Timothyke" class="social-icon" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-        <a href="#" class="social-icon" aria-label="Hackerrank"><i class="fab fa-hackerrank"></i></a>
-        <a href="#" class="social-icon" aria-label="Medium"><i class="fab fa-medium"></i></a>
+      <div class="social-links">
+        <a href="#" class="social-link">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="#" class="social-link">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="#" class="social-link">
+          <i class="fab fa-twitter"></i>
+        </a>
       </div>
-      <p>SYSTEM STATUS: <span style="color: var(--matrix-green);">OPERATIONAL</span></p>
-      <p>LAST UPDATE: <span style="color: var(--cyber-blue);">2025.06.12</span></p>
+      <p>&copy; 2024 Timothy Maina Kageni. All rights reserved.</p>
     </footer>
   </div>
-  <!-- ...Keep your JS for terminal typing & eye effect... -->
 </body>
 </html>
-
-
